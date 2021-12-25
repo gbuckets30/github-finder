@@ -6,6 +6,14 @@ const GithubReducer = (state, { type, payload }) => {
         users: [],
       };
 
+    case 'GET_USER_DATA_BEGIN':
+      return {
+        ...state,
+        user: {},
+        repos: [],
+        loading: true,
+      };
+
     case 'SEARCH_USERS_BEGIN':
       return {
         ...state,
@@ -13,24 +21,18 @@ const GithubReducer = (state, { type, payload }) => {
         loading: true,
       };
 
-    case 'GET_USER_BEGIN':
+    case 'GET_USER_DATA_END':
       return {
         ...state,
-        user: {},
-        loading: true,
+        user: payload.user,
+        repos: payload.repos,
+        loading: false,
       };
 
     case 'SEARCH_USERS_END':
       return {
         ...state,
         users: payload.users,
-        loading: false,
-      };
-
-    case 'GET_USER_END':
-      return {
-        ...state,
-        user: payload.user,
         loading: false,
       };
 

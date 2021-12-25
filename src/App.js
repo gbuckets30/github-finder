@@ -19,7 +19,7 @@ function App() {
               <Route path='/' element={<Home />} />
               <Route path='/about' element={<About />} />
               <Route path='/user/:login' element={<User />} />
-              <Route path='/notfound' element={<About />}></Route>
+              <Route path='/notfound' element={<NotFound />}></Route>
               <Route path='/*' element={<NotFound />} />
             </Routes>
           </AlertProvider>
